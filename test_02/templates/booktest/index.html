@@ -1,0 +1,14 @@
+{% extends 'booktest/base.html' %}
+
+{% block b1%}
+{{ block.super }}</br>
+子模板内容</br>
+
+{{ content }} </br>
+{{ content|safe }} </br>
+{% autoescape off %}
+{{ content}}
+{% endautoescape %} </br>
+{{ test|default:'<h1>1122</h1>' }} </br>
+
+{% endblock b1%}

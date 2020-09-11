@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load filters %}
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<a href="/booktest/book/add">新增</a>
+<ul
+    {% for book in books %}
+        {% if book.id|mod_val:3 %}
+            <li style="background-color: red"><a href="/booktest/showheros/{{ book.id }}">{{ book.btitle }}</a>----{{ book.bpub_date|date:"Y-M-D"}}----<a href="/booktest/book/delete/{{ book.id }}">删除</a></li>
+        {% else %}
+            <li style="background-color: green"><a href="/booktest/showheros/{{ book.id }}">{{ book.btitle }}</a>----{{ book.bpub_date }}----<a href="/booktest/book/delete/{{ book.id }}">删除</a></li>
+        {% endif %}
+    {% endfor %}
+    <!-- 注释fsaf -->
+</ul>
+</body>
+</html>
